@@ -30,12 +30,12 @@ s 由英文字母、数字、符号和空格组成
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
         n = len(s)
-        start = -1
+        start = -1 #初始值为-1是因为当n=1时i=0,此时要保证max=i-start=1
         max = 0
         dic = {}
         for i in range(n):
-            if s[i] in dic and dic[s[i]]>start:
-                start = dic[s[i]]
+            if s[i] in dic and dic[s[i]]>start:#dic[s[i]]>start 为了防止重复元素出现在末尾不被纪录如 thsaft
+                start = dic[s[i]] #start = dic[s[i]] 放在 dixt[s[i]]=i之前是为了保证如snmsrt这样snm max=3 再次遇到时要从n开始既nmsrt
                 dic[s[i]] = i
             else:
                 dic[s[i]] = i
